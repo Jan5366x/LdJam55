@@ -22,15 +22,22 @@ public class TowerInput : MonoBehaviour
         if (!towerPlaceRequested)
             return;
         GameObject[] slots = GameObject.FindGameObjectsWithTag("TowerBuildingSlot");
-        TowerSlot slot = slots
+        GameObject slot = slots
             .OrderBy(x => Vector3.Distance(player.transform.position, x.transform.position))
-            .First()
-            .GetComponent<TowerSlot>();
-        if (!slot.isOccupied)
+            .FirstOrDefault();
+        
+        if (slot is null)
+        {
+            // TODO: Handle what happens when no slot was found
+            return;
+        }
+        
+        var towerSlot = slot.GetComponent<TowerSlot>();
+        if (!towerSlot.isOccupied)
         {
             GameObject tower = Instantiate(towerTemplate, slot.transform);
             tower.transform.position = slot.transform.position;
-            slot.isOccupied = true;
+            towerSlot.isOccupied = true;
         }
     }
 }
