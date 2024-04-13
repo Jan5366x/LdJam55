@@ -1,12 +1,14 @@
 using JetBrains.Annotations;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class FireAtTarget : MonoBehaviour
 {
     public GameObject projectile;
 
     // 10 == one shot per second
     public float fireRate;
+    public float maxRange;
 
     private Transform weapon;
     [CanBeNull]
@@ -42,18 +44,23 @@ public class FireAtTarget : MonoBehaviour
         // TODO: Internet says this is bad for performance :(
         var enemies = GameObject.FindGameObjectsWithTag("Enemy");
         GameObject nextTarget = null;
-        var enemyDistance = float.MaxValue;
+        var nextTagetDistance = float.MaxValue;
 
         foreach (var enemy in enemies)
         {
             var dist = Vector3.Distance(transform.position, enemy.transform.position);
-            if (dist < enemyDistance)
+            if (dist < maxRange && dist < nextTagetDistance)
             {
                 nextTarget = enemy;
-                enemyDistance = dist;
+                nextTagetDistance = dist;
             }
         }
 
         target = nextTarget?.transform;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, maxRange);
     }
 }
