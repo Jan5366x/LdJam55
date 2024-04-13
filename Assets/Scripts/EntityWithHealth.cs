@@ -28,11 +28,18 @@ public class EntityWithHealth : MonoBehaviour
     /// <summary>
     ///
     /// </summary>
-    /// <param name="damage"></param>
+    /// <param name="damage">amount of damage</param>
+    /// <param name="damageType">Damage type of the projectile</param>
     /// <returns>Whether the entity has died</returns>
-    public bool ApplyDamage(float damage)
+    public bool ApplyDamage(float damage, DamageType damageType = DamageType.None)
     {
-        health -= damage;
+        float damageTaken = damageType switch
+        {
+            DamageType.Magical => damage * magicalResistance,
+            DamageType.Physical => damage * physicalResistance,
+            DamageType.None => damage,
+        };
+        health -= damageTaken;
         if (health <= 0)
         {
             diedEvent.Invoke();
