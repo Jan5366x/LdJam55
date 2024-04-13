@@ -12,7 +12,7 @@ public class TowerInput : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject.assign
+        
     }
 
     // Update is called once per frame
