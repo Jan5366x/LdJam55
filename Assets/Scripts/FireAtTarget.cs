@@ -1,15 +1,16 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class FireAtTarget : MonoBehaviour
 {
-    public Transform target;
-
     public GameObject projectile;
 
     // 10 == one shot per second
     public float fireRate;
 
     private Transform weapon;
+    [CanBeNull]
+    private Transform target;
     private float timeSinceLastShot = 0;
     
     // Start is called before the first frame update
@@ -25,10 +26,34 @@ public class FireAtTarget : MonoBehaviour
 
         if (timeSinceLastShot >= (10 / fireRate))
         {
-            timeSinceLastShot = 0;
-            var projectileObject = Instantiate(projectile, weapon.position, Quaternion.identity);
-            var moveScript = projectileObject.GetComponent<MoveToTarget>();
-            moveScript.target = target; 
+            FindNearestTarget();
+            if (target is not null)
+            {
+                timeSinceLastShot = 0;
+                var projectileObject = Instantiate(projectile, weapon.position, Quaternion.identity);
+                var moveScript = projectileObject.GetComponent<MoveToTarget>();
+                moveScript.target = target; 
+            }
         }
+    }
+
+    private void FindNearestTarget()
+    {
+        // TODO: Internet says this is bad for performance :(
+        var enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject nextTarget = null;
+        var enemyDistance = float.MaxValue;
+
+        foreach (var enemy in enemies)
+        {
+            var dist = Vector3.Distance(transform.position, enemy.transform.position);
+            if (dist < enemyDistance)
+            {
+                nextTarget = enemy;
+                enemyDistance = dist;
+            }
+        }
+
+        target = nextTarget?.transform;
     }
 }
