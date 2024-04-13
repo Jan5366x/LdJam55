@@ -12,7 +12,7 @@ public class TowerInput : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = player != null ? player : GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -22,15 +22,15 @@ public class TowerInput : MonoBehaviour
         if (!towerPlaceRequested)
             return;
         GameObject[] slots = GameObject.FindGameObjectsWithTag("TowerBuildingSlot");
-        // TODO: Measure distance to player
         TowerSlot slot = slots
-            .OrderBy(x => Vector3.Distance(transform.position, x.transform.position))
+            .OrderBy(x => Vector3.Distance(player.transform.position, x.transform.position))
             .First()
             .GetComponent<TowerSlot>();
         if (!slot.isOccupied)
         {
             GameObject tower = Instantiate(towerTemplate, slot.transform);
             tower.transform.position = slot.transform.position;
+            slot.isOccupied = true;
         }
     }
 }
