@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Enemy : MonoBehaviour
+public class EntityWithHealth : MonoBehaviour
 {
     // Start is called before the first frame update
 
     public float health;
-    public float attackDamge;
-    public float attacksPerSecond;
     public UnityEvent diedEvent;
 
     [Range(0, 1)]
