@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,9 +36,10 @@ public class EntityWithHealth : MonoBehaviour
     {
         float damageTaken = damageType switch
         {
-            DamageType.Magical => damage * magicalResistance,
-            DamageType.Physical => damage * physicalResistance,
+            DamageType.Magical => damage * (1f - magicalResistance),
+            DamageType.Physical => damage * (1f - physicalResistance),
             DamageType.None => damage,
+            _ => throw new ArgumentOutOfRangeException(nameof(damageType), damageType, null)
         };
         health -= damageTaken;
         if (health <= 0)
