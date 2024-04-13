@@ -43,7 +43,16 @@ public class WaypointFollower : MonoBehaviour
 
         if (transform.position == _currentWaypoint.transform.position)
         {
-            _currentWaypoint = waypointManager.GetNextNode(_currentWaypoint);
+            if (waypointManager.IsLastNode(_currentWaypoint))
+            {
+                var power = transform.GetComponent<EntityWithAttack>().attackPower;
+                GameObject.Find("GameStateManager").GetComponent<GameStateManager>().AddDamage(power);
+                Destroy(gameObject);
+            }
+            else
+            {
+                _currentWaypoint = waypointManager.GetNextNode(_currentWaypoint);
+            }
         }
     }
 }

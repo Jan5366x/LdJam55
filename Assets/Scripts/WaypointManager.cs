@@ -65,4 +65,9 @@ public class WaypointManager : MonoBehaviour
     {
         return _nextPoints[current];
     }
+
+    public bool IsLastNode(Waypoint current)
+    {
+        return current == destinationPoint;
+    }
 }

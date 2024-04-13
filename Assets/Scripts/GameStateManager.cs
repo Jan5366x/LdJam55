@@ -31,7 +31,7 @@ public class GameStateManager : MonoBehaviour
         timeField.SetText($"Time: {TimeSpan.FromSeconds(gameTime):mm\\:ss}");
         currencyField.SetText($"Souls: {currency}");
         healthField.SetText($"{health}/{MaxHealth}");
-        if (health <= 5)
+        if (health <= MaxHealth * 0.2)
         {
             healthField.fontStyle = FontStyles.Bold;
             healthField.color = Color.red;
@@ -63,6 +63,7 @@ public class GameStateManager : MonoBehaviour
 
         if (health <= 0)
         {
+            Debug.Log("Game lost");
             // TODO: Handle lost game
         }
 
