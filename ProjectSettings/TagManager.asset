@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - TowerBuildingSlot
+  - GameStateManager
   layers:
   - Default
   - TransparentFX

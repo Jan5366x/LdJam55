@@ -19,7 +19,7 @@ public class FireAtTarget : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        weapon = transform.Find("Weapon");
+        weapon = transform.Find("TowerGraphics/Weapon");
     }
 
     // Update is called once per frame
@@ -62,6 +62,6 @@ public class FireAtTarget : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(transform.Find("Weapon").transform.position, maxRange);
+        Gizmos.DrawWireSphere(transform.Find("TowerGraphics/Weapon").transform.position, maxRange);
     }
 }

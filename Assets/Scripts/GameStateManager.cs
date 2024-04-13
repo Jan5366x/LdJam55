@@ -7,7 +7,7 @@ public class GameStateManager : MonoBehaviour
     public TextMeshProUGUI timeField;
     public TextMeshProUGUI currencyField;
     public TextMeshProUGUI healthField;
-    
+
     private float gameTime;
     private int health = MaxHealth;
     private int currency;
@@ -16,18 +16,18 @@ public class GameStateManager : MonoBehaviour
     private const int MaxHealth = 100;
     private const int BaseIncome = 5;
     private const int BaseIncomeRhythm = 5;
-    
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
         gameTime += Time.deltaTime;
-        
+
         timeField.SetText($"Time: {TimeSpan.FromSeconds(gameTime):mm\\:ss}");
         currencyField.SetText($"Souls: {currency}");
         healthField.SetText($"{health}/{MaxHealth}");
@@ -53,9 +53,11 @@ public class GameStateManager : MonoBehaviour
     public int AddCurrency(int currencyToAdd)
     {
         currency += currencyToAdd;
-        
+
         return currency;
     }
+
+    public int GetCurrency() => currency;
 
     public int AddDamage(int damage)
     {

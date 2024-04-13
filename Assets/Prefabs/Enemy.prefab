@@ -117,6 +117,7 @@ MonoBehaviour:
   diedEvent:
     m_PersistentCalls:
       m_Calls: []
+  unitValue: 2
   physicalResistance: 0
   magicalResistance: 0
 --- !u!114 &8663079599838684647

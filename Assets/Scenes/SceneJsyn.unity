@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 63138082}
   m_Layer: 0
   m_Name: GameStateManager
-  m_TagString: Untagged
+  m_TagString: GameStateManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1104,15 +1104,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2057691226480292157, guid: 6152bc8cf3a93d247b26582408257830, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6920002720939792871, guid: 6152bc8cf3a93d247b26582408257830, type: 3}
       propertyPath: m_Name
       value: TowerA
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 517732518581201796, guid: 6152bc8cf3a93d247b26582408257830, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2113,6 +2110,7 @@ MonoBehaviour:
   diedEvent:
     m_PersistentCalls:
       m_Calls: []
+  currencyValue: 0
   physicalResistance: 0
   magicalResistance: 0
 --- !u!1 &1880634717
@@ -2438,6 +2436,7 @@ MonoBehaviour:
   towerTemplate: {fileID: 6920002720939792871, guid: 6152bc8cf3a93d247b26582408257830, type: 3}
   towerContainer: {fileID: 1988072119}
   player: {fileID: 502301493}
+  gameStateManager: {fileID: 63138082}
 --- !u!1 &2072760673
 GameObject:
   m_ObjectHideFlags: 0

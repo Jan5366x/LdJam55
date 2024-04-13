@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class EntityWithHealth : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class EntityWithHealth : MonoBehaviour
 
     public float health;
     public UnityEvent diedEvent;
+    public int unitValue;
 
     [Range(0, 1)]
     public float physicalResistance;
@@ -46,6 +48,8 @@ public class EntityWithHealth : MonoBehaviour
         {
             diedEvent.Invoke();
             Destroy(gameObject);
+            GameObject stateManger = GameObject.FindGameObjectWithTag("GameStateManager");
+            stateManger.GetComponent<GameStateManager>().AddCurrency(unitValue);
             return true;
         }
 

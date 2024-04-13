@@ -8,6 +8,7 @@ public class TowerInput : MonoBehaviour
     public GameObject towerTemplate;
     public Transform towerContainer;
     public GameObject player;
+    public GameStateManager gameStateManager;
 
     // Start is called before the first frame update
     void Start()
@@ -25,16 +26,19 @@ public class TowerInput : MonoBehaviour
         GameObject slot = slots
             .OrderBy(x => Vector3.Distance(player.transform.position, x.transform.position))
             .FirstOrDefault();
-        
+
         if (slot is null)
         {
             // TODO: Handle what happens when no slot was found
             return;
         }
-        
+
         var towerSlot = slot.GetComponent<TowerSlot>();
-        if (!towerSlot.isOccupied)
+        // TODO: Add cost field to tower script
+        const int towerCost = 10;
+        if (!towerSlot.isOccupied && gameStateManager.GetCurrency() >= towerCost)
         {
+            gameStateManager.AddCurrency(-towerCost);
             GameObject tower = Instantiate(towerTemplate, slot.transform);
             tower.transform.position = slot.transform.position;
             towerSlot.isOccupied = true;
