@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3210197422096819155}
   - component: {fileID: 3587344548948680865}
-  - component: {fileID: 2057691226480292157}
+  - component: {fileID: 517732518581201796}
   m_Layer: 0
   m_Name: TowerGraphics
   m_TagString: Untagged
@@ -117,7 +117,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2057691226480292157
+--- !u!114 &517732518581201796
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,6 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 6134469652149498029, guid: e7fb7a0b91e6f4d82b3b15afab44f182, type: 3}
   fireRate: 10
+  maxRange: 10
 --- !u!1 &6920002720939792871
 GameObject:
   m_ObjectHideFlags: 0

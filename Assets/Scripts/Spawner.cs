@@ -15,7 +15,18 @@ public class Spawner : MonoBehaviour
     public GameObject enemyTemplate;
     public Transform enemyContainer;
 
+    public WaypointManager waypointManager;
+
     public AnimationCurve curve = AnimationCurve.Linear(0,0,10,10);
+
+    public bool overwriteSpeed;
+    public float speed;
+
+    public bool overwriteDamage;
+    public int damage;
+
+    public bool overwriteHealth;
+    public int health;
 
     // public GameObject entityGraveyard;
 
@@ -40,8 +51,18 @@ public class Spawner : MonoBehaviour
         if (ShouldSpawnEnemy())
         {
             GameObject enemy = Instantiate(enemyTemplate, enemyContainer);
+            var waypointFollower = enemyTemplate.GetComponent<WaypointFollower>();
+            waypointFollower.waypointManager = waypointManager;
+            var healthComponent = enemyTemplate.GetComponent<EntityWithHealth>();
+            var attacker = enemyTemplate.GetComponent<EntityWithAttack>();
             enemy.transform.position = transform.position;
             enemy.SetActive(true);
+            if (overwriteSpeed)
+                waypointFollower.speed = speed;
+            if (overwriteDamage)
+                attacker.attackPower = damage;
+            if (overwriteHealth)
+                healthComponent.health = health;
             _enemiesSpawned += 1;
             _accumulatedtime = 0;
         }

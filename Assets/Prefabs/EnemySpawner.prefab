@@ -51,6 +51,37 @@ MonoBehaviour:
   secondsUntilLastEnemy: 20
   enemyTemplate: {fileID: 0}
   enemyContainer: {fileID: 2022922082543706170}
+  waypointManager: {fileID: 0}
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  overwriteSpeed: 0
+  speed: 0
+  overwriteDamage: 0
+  damage: 0
+  overwriteHealth: 0
+  health: 0
 --- !u!114 &8262467697577456986
 MonoBehaviour:
   m_ObjectHideFlags: 0

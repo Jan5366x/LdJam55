@@ -10,11 +10,12 @@ public class FireAtTarget : MonoBehaviour
     public float fireRate;
     public float maxRange;
 
+    // public Transform weapon;
     private Transform weapon;
     [CanBeNull]
     private Transform target;
     private float timeSinceLastShot = 0;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +35,7 @@ public class FireAtTarget : MonoBehaviour
                 timeSinceLastShot = 0;
                 var projectileObject = Instantiate(projectile, weapon.position, Quaternion.identity);
                 var moveScript = projectileObject.GetComponent<MoveToTarget>();
-                moveScript.target = target; 
+                moveScript.target = target;
             }
         }
     }
@@ -61,6 +62,6 @@ public class FireAtTarget : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(transform.position, maxRange);
+        Gizmos.DrawWireSphere(transform.Find("Weapon").transform.position, maxRange);
     }
 }
