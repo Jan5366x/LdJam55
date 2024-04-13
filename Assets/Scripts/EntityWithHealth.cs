@@ -45,6 +45,7 @@ public class EntityWithHealth : MonoBehaviour
         if (health <= 0)
         {
             diedEvent.Invoke();
+            Destroy(gameObject);
             return true;
         }
 

@@ -26,6 +26,7 @@ public class MoveToTarget : MonoBehaviour
 
             if (Vector3.Distance(transform.position, target.position) <= 0.3f)
             {
+                target.GetComponent<EntityWithHealth>().ApplyDamage(10);
                 Destroy(gameObject);
             }
         }
