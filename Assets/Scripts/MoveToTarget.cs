@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -5,6 +6,7 @@ public class MoveToTarget : MonoBehaviour
 {
     public Transform target;
     public float moveSpeed;
+    public GameObject explosionTemplate;
 
     private Vector3 lastTargetPosition;
 
@@ -32,6 +34,12 @@ public class MoveToTarget : MonoBehaviour
             if (target.IsDestroyed() is false)
             {
                 target.GetComponent<EntityWithHealth>().ApplyDamage(10);    
+            }
+
+            if (explosionTemplate != null)
+            {
+                var explosion = Instantiate(explosionTemplate);
+                explosion.transform.position = transform.position;
             }
             
             Destroy(gameObject);
