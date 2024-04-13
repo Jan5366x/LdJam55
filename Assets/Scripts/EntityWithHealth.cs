@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,11 +29,19 @@ public class EntityWithHealth : MonoBehaviour
     /// <summary>
     ///
     /// </summary>
-    /// <param name="damage"></param>
+    /// <param name="damage">amount of damage</param>
+    /// <param name="damageType">Damage type of the projectile</param>
     /// <returns>Whether the entity has died</returns>
-    public bool ApplyDamage(float damage)
+    public bool ApplyDamage(float damage, DamageType damageType = DamageType.None)
     {
-        health -= damage;
+        float damageTaken = damageType switch
+        {
+            DamageType.Magical => damage * (1f - magicalResistance),
+            DamageType.Physical => damage * (1f - physicalResistance),
+            DamageType.None => damage,
+            _ => throw new ArgumentOutOfRangeException(nameof(damageType), damageType, null)
+        };
+        health -= damageTaken;
         if (health <= 0)
         {
             diedEvent.Invoke();
