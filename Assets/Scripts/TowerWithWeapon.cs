@@ -1,8 +1,7 @@
-using JetBrains.Annotations;
 using UnityEngine;
 
 [ExecuteInEditMode]
-public class FireAtTarget : MonoBehaviour
+public class TowerWithWeapon : MonoBehaviour
 {
     public GameObject projectile;
 
@@ -11,31 +10,27 @@ public class FireAtTarget : MonoBehaviour
     public float maxRange;
 
     // public Transform weapon;
-    private Transform weapon;
-    [CanBeNull]
-    private Transform target;
-    private float timeSinceLastShot = 0;
+    private Transform _weapon;
+    private Transform _target;
+    private float _timeSinceLastShot = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        weapon = transform.Find("TowerGraphics/Weapon");
+        _weapon = transform.Find("TowerGraphics/Weapon");
     }
 
     // Update is called once per frame
     void Update()
     {
-        timeSinceLastShot += Time.deltaTime;
+        _timeSinceLastShot += Time.deltaTime;
 
-        if (timeSinceLastShot >= (10 / fireRate))
+        if (_timeSinceLastShot >= (10 / fireRate))
         {
             FindNearestTarget();
-            if (target is not null)
+            if (_target is not null)
             {
-                timeSinceLastShot = 0;
-                var projectileObject = Instantiate(projectile, weapon.position, Quaternion.identity);
-                var moveScript = projectileObject.GetComponent<MoveToTarget>();
-                moveScript.target = target;
+                LaunchProjectile();
             }
         }
     }
@@ -49,7 +44,7 @@ public class FireAtTarget : MonoBehaviour
 
         foreach (var enemy in enemies)
         {
-            var dist = Vector3.Distance(weapon.transform.position, enemy.transform.position);
+            var dist = Vector3.Distance(_weapon.transform.position, enemy.transform.position);
             if (dist < maxRange && dist < nextTagetDistance)
             {
                 nextTarget = enemy;
@@ -57,7 +52,15 @@ public class FireAtTarget : MonoBehaviour
             }
         }
 
-        target = nextTarget?.transform;
+        _target = nextTarget?.transform;
+    }
+
+    private void LaunchProjectile()
+    {
+        _timeSinceLastShot = 0;
+        var projectileObject = Instantiate(projectile, _weapon.position, Quaternion.identity);
+        var moveScript = projectileObject.GetComponent<MovingProjectile>();
+        moveScript.target = _target;
     }
 
     private void OnDrawGizmos()
