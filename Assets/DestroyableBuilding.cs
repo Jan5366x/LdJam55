@@ -8,5 +8,6 @@ public class DestroyableBuilding : MonoBehaviour
     {
         Instantiate(destroyedTemplate, transform.position, Quaternion.identity);
         Destroy(gameObject);
+        Time.timeScale = 0;
     }
 }
