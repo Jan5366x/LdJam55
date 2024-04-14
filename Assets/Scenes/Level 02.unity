@@ -94751,6 +94751,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Camera + Minimap Cam
       objectReference: {fileID: 0}
+    - target: {fileID: 3700487063492107421, guid: 2561dc91600da17429441d2829bac042, type: 3}
+      propertyPath: orthographic size
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 3862439813548836582, guid: 2561dc91600da17429441d2829bac042, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.5905
