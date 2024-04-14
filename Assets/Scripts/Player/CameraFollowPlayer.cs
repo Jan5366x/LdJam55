@@ -2,18 +2,23 @@ using UnityEngine;
 
 public class CameraFollowPlayer : MonoBehaviour
 {
-    public Transform followTarget;
     public float moveSpeed;
     
-    private Vector3 targetPos;
+    private Vector3 _targetPos;
+    private Transform _followTarget;
+
+    void Start()
+    {
+        _followTarget = GameObject.FindGameObjectWithTag("Player").transform;
+    }
 
     void Update()
     {
-        if (followTarget is not null)
+        if (_followTarget is not null)
         {
-            targetPos = new Vector3(followTarget.position.x, followTarget.position.y, transform.position.z);
-            Vector3 velocity = (targetPos - transform.position) * moveSpeed;
-            transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref velocity, 5.0f, Time.deltaTime);
+            _targetPos = new Vector3(_followTarget.position.x, _followTarget.position.y, transform.position.z);
+            Vector3 velocity = (_targetPos - transform.position) * moveSpeed;
+            transform.position = Vector3.SmoothDamp(transform.position, _targetPos, ref velocity, 5.0f, Time.deltaTime);
         }
     }
 }
