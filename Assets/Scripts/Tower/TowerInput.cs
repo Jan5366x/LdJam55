@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class TowerInput : MonoBehaviour
 {
     public GameObject towerTemplate;
-    public Transform towerContainer;
     public GameObject player;
     public GameStateManager gameStateManager;
 
@@ -42,6 +39,7 @@ public class TowerInput : MonoBehaviour
             GameObject tower = Instantiate(towerTemplate, slot.transform);
             tower.transform.position = slot.transform.position;
             towerSlot.isOccupied = true;
+            towerSlot.GetComponentInChildren<SpriteRenderer>().enabled = false;
         }
     }
 }

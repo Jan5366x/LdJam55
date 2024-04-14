@@ -44,3 +44,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 194491481
+    locked: 0
+  - name: WorldLevel1
+    uniqueID: 3595532989
+    locked: 0
+  - name: WorldLevel2
+    uniqueID: 3966081117
+    locked: 0
+  - name: Objects
+    uniqueID: 3332770717
+    locked: 0

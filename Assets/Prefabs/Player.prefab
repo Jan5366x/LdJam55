@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5936078363254949531}
   - component: {fileID: 1998892932912626207}
   - component: {fileID: 7795038683977840993}
+  - component: {fileID: 6086020076305252182}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -74,8 +75,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -962196579
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -751064594, guid: e591da4393aaa0a4bacbdd2e5275f0f9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -162,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e0c3b5d10b0c4498a9d919752050e9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.3
+  speed: 0.1
 --- !u!114 &7795038683977840993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,9 +176,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cf02d1be104a60418ff55d53df0b5d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathAnimationTemplate: {fileID: 0}
   health: 35
-  diedEvent:
-    m_PersistentCalls:
-      m_Calls: []
+  unitValue: 0
   physicalResistance: 0
   magicalResistance: 0
+--- !u!114 &6086020076305252182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3206160408297284923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c5db73a7d032554e807095c916e17bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerTemplate: {fileID: 6920002720939792871, guid: 6152bc8cf3a93d247b26582408257830, type: 3}
+  player: {fileID: 3206160408297284923}
+  gameStateManager: {fileID: 0}

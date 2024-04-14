@@ -8,9 +8,10 @@ public class GameStateManager : MonoBehaviour
     public TextMeshProUGUI currencyField;
     public TextMeshProUGUI healthField;
 
+    public int currency;
+
     private float gameTime;
     private int health = MaxHealth;
-    private int currency;
     private int lastBaseIncome;
 
     private const int MaxHealth = 100;

@@ -3,16 +3,20 @@ using UnityEngine;
 public class EntityWithAttack : MonoBehaviour
 {
     public int attackPower;
-    
-    // Start is called before the first frame update
-    void Start()
+    public GameObject attackAnimationTemplate;
+
+    public void AttackCastle()
     {
-        
+        GameObject.Find("GameStateManager").GetComponent<GameStateManager>().AddDamage(attackPower);
+        PlayAttackAnimation();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void PlayAttackAnimation()
     {
-        
+        if (attackAnimationTemplate != null)
+        {
+            var attackAnimation = Instantiate(attackAnimationTemplate);
+            attackAnimation.transform.position = transform.position;
+        }
     }
 }
