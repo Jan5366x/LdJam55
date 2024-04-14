@@ -50,6 +50,9 @@ TagManager:
   - name: WorldLevel1
     uniqueID: 3595532989
     locked: 0
+  - name: Enemies
+    uniqueID: 2480695641
+    locked: 0
   - name: WorldLevel2
     uniqueID: 3966081117
     locked: 0
