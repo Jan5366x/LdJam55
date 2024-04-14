@@ -13,27 +13,31 @@ public class Movement : MonoBehaviour
     private static readonly int Vertical = Animator.StringToHash("Vertical");
     private static readonly int Speed = Animator.StringToHash("Speed");
 
+    private Rigidbody2D _rigidbody2D;
+
+    private void Start()
+    {
+        _rigidbody2D = GetComponent<Rigidbody2D>();
+    }
+
     private void Update()
     {
         animator.SetFloat(Horizontal, CurrentDirection.x);
         animator.SetFloat(Vertical, CurrentDirection.y);
         animator.SetFloat(Speed, CurrentSpeed);
     }
-
+    
     private void FixedUpdate()
     {
         var vertical = Input.GetAxis("Vertical");
         var horizontal = Input.GetAxis("Horizontal");
+        
+        _rigidbody2D.AddForce(new Vector3 ( + horizontal * speed * Time.deltaTime, vertical * speed* Time.deltaTime));
 
-        var lastPosition = transform.position;
-        gameObject.transform.position = new Vector3 (transform.position.x + (horizontal * speed),
-            transform.position.y + (vertical * speed));
-
-        CurrentSpeed = Vector3.Distance(transform.position, lastPosition);
-        Vector3 direction = transform.position - lastPosition;
-        if (direction.magnitude > 0.00001f)
+        CurrentSpeed = _rigidbody2D.velocity.magnitude;
+        if (CurrentSpeed > 0.00001f)
         {
-            CurrentDirection = direction.normalized;
+            CurrentDirection = _rigidbody2D.velocity.normalized;
         }
     }
 }
