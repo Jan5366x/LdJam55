@@ -58,7 +58,7 @@ public class WaypointManager : MonoBehaviour
 
     public Waypoint GetSpawnNode()
     {
-        return _waypoints.First();
+        return _waypoints.FirstOrDefault();
     }
 
     public Waypoint GetNextNode(Waypoint current)
