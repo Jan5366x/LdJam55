@@ -1,8 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
-using UnityEditor.UIElements;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -27,34 +23,20 @@ public class Spawner : MonoBehaviour
 
     public bool overwriteHealth;
     public int health;
-
-    // public GameObject entityGraveyard;
-
+    
     private int _enemiesSpawned;
-    private float _accumulatedtime;
     private float _accumulatedtimeAll;
-
-    private float _secondsPerEnemy
-    {
-        get => (float)secondsUntilLastEnemy / enemiesToSpawn;
-    }
-
-    void Start()
-    {
-    }
-
-
+    
     void Update()
     {
-        _accumulatedtime += Time.deltaTime;
         _accumulatedtimeAll += Time.deltaTime;
         if (ShouldSpawnEnemy())
         {
             GameObject enemy = Instantiate(enemyTemplate, enemyContainer);
-            var waypointFollower = enemyTemplate.GetComponent<WaypointFollower>();
+            var waypointFollower = enemy.GetComponent<WaypointFollower>();
             waypointFollower.waypointManager = waypointManager;
-            var healthComponent = enemyTemplate.GetComponent<EntityWithHealth>();
-            var attacker = enemyTemplate.GetComponent<EntityWithAttack>();
+            var healthComponent = enemy.GetComponent<EntityWithHealth>();
+            var attacker = enemy.GetComponent<EntityWithAttack>();
             enemy.transform.position = transform.position;
             enemy.SetActive(true);
             if (overwriteSpeed)
@@ -64,7 +46,6 @@ public class Spawner : MonoBehaviour
             if (overwriteHealth)
                 healthComponent.health = health;
             _enemiesSpawned += 1;
-            _accumulatedtime = 0;
         }
     }
 
