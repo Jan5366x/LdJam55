@@ -53,6 +53,9 @@ TagManager:
   - name: WorldLevel2
     uniqueID: 3966081117
     locked: 0
+  - name: BuildingPlaces
+    uniqueID: 3327921467
+    locked: 0
   - name: Objects
     uniqueID: 3332770717
     locked: 0
