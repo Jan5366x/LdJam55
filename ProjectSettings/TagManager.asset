@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - TowerBuildingSlot
   - GameStateManager
+  - MainBuilding
   layers:
   - Default
   - TransparentFX
@@ -55,6 +56,9 @@ TagManager:
     locked: 0
   - name: WorldLevel2
     uniqueID: 3966081117
+    locked: 0
+  - name: Environment
+    uniqueID: 426776825
     locked: 0
   - name: BuildingPlaces
     uniqueID: 3327921467
