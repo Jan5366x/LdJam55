@@ -7,7 +7,7 @@ public class GameStateManager : MonoBehaviour
     public TextMeshProUGUI timeField;
     public TextMeshProUGUI currencyField;
     public TextMeshProUGUI healthField;
-
+    
     public int currency;
 
     private float gameTime;
@@ -66,8 +66,9 @@ public class GameStateManager : MonoBehaviour
 
         if (health <= 0)
         {
-            Debug.Log("Game lost");
-            // TODO: Handle lost game
+            var mainBuilding = GameObject.FindGameObjectWithTag("MainBuilding");
+            mainBuilding.GetComponent<DestroyableBuilding>().Destroy();
+            Destroy(mainBuilding);
         }
 
         return health;
