@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3862439813548836582}
   m_Layer: 0
-  m_Name: Cameras
+  m_Name: Camera + Minimap Cam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,7 +83,7 @@ PrefabInstance:
       objectReference: {fileID: 8400000, guid: ece12d1f275985945ac6b3c58ef3d554, type: 2}
     - target: {fileID: 405892482426189528, guid: e74d95c25bce9554c9144b50e9feb7c1, type: 3}
       propertyPath: orthographic size
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 682771865405584357, guid: e74d95c25bce9554c9144b50e9feb7c1, type: 3}
       propertyPath: worldLimiter
