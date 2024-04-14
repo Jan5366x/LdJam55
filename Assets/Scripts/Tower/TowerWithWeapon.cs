@@ -8,6 +8,7 @@ public class TowerWithWeapon : MonoBehaviour
     // 10 == one shot per second
     public float fireRate;
     public float maxRange;
+    public int damage;
 
     // public Transform weapon;
     private Transform _weapon;
@@ -61,6 +62,7 @@ public class TowerWithWeapon : MonoBehaviour
         var projectileObject = Instantiate(projectile, _weapon.position, Quaternion.identity);
         var moveScript = projectileObject.GetComponent<MovingProjectile>();
         moveScript.target = _target;
+        moveScript.damage = damage;
     }
 
     private void OnDrawGizmos()

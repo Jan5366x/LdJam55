@@ -7,6 +7,8 @@ public class MovingProjectile : MonoBehaviour
     public float moveSpeed;
     public GameObject explosionTemplate;
 
+    public int damage;
+
     private Vector3 _lastTargetPosition;
 
     // Update is called once per frame
@@ -30,7 +32,7 @@ public class MovingProjectile : MonoBehaviour
     {
         if (target.IsDestroyed() is false)
         {
-            target.GetComponent<EntityWithHealth>().ApplyDamage(10);    
+            target.GetComponent<EntityWithHealth>().ApplyDamage(damage);    
         }
 
         if (explosionTemplate != null)

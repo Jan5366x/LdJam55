@@ -47,8 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc32041fed48dd74e8b647ad7d88603d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemiesToSpawn: 30
-  secondsUntilLastEnemy: 20
+  enemiesToSpawn: 60
+  secondsUntilLastEnemy: 90
   enemyTemplate: {fileID: 0}
   enemyContainer: {fileID: 2022922082543706170}
   waypointManager: {fileID: 0}
