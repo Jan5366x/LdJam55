@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 213401539124156822}
   - component: {fileID: 1666549078399806798}
   - component: {fileID: 6488543942362350544}
+  - component: {fileID: 8611150327121709305}
   m_Layer: 0
   m_Name: FireProjectileRed
   m_TagString: Untagged
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -962196579
   m_SortingLayer: 4
-  m_SortingOrder: 0
+  m_SortingOrder: 12
   m_Sprite: {fileID: -135637995, guid: a9b84b29f11a9e842a39ca44597aae50, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -139,3 +140,16 @@ MonoBehaviour:
   target: {fileID: 0}
   moveSpeed: 7
   explosionTemplate: {fileID: 0}
+--- !u!114 &8611150327121709305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6134469652149498029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67f3b2c6907d5c0d7b6544c7beb0e9c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundOffset: -0.13
