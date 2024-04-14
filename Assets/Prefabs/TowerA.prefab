@@ -103,7 +103,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -962196579
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: -9
   m_Sprite: {fileID: -96604509, guid: 0e100858345db1a898d03d050c789d8c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -202,7 +202,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -962196579
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 08a8d9ecf1b54827b9eb0540119612ed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -279,6 +279,7 @@ MonoBehaviour:
   projectile: {fileID: 6134469652149498029, guid: e7fb7a0b91e6f4d82b3b15afab44f182, type: 3}
   fireRate: 10
   maxRange: 4
+  damage: 10
 --- !u!114 &7111602274514975137
 MonoBehaviour:
   m_ObjectHideFlags: 0

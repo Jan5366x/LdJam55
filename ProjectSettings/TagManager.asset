@@ -8,6 +8,8 @@ TagManager:
   - TowerBuildingSlot
   - GameStateManager
   - MainBuilding
+  - WinScreen
+  - DeathScreen
   layers:
   - Default
   - TransparentFX

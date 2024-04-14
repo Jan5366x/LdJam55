@@ -7,6 +7,8 @@ public class TowerInput : MonoBehaviour
     public GameObject player;
     public GameStateManager gameStateManager;
 
+    public float buildRadius = 1.5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,12 +23,13 @@ public class TowerInput : MonoBehaviour
             return;
         GameObject[] slots = GameObject.FindGameObjectsWithTag("TowerBuildingSlot");
         GameObject slot = slots
+            .Where(x => Vector3.Distance(player.transform.position, x.transform.position) <= buildRadius)
             .OrderBy(x => Vector3.Distance(player.transform.position, x.transform.position))
             .FirstOrDefault();
 
         if (slot is null)
         {
-            // TODO: Handle what happens when no slot was found
+            GameObject.Find("Info Text").GetComponent<AutoClearTextfield>().SetText("No Buildslot in range");
             return;
         }
 

@@ -12,6 +12,9 @@ public class GameStateManager : MonoBehaviour
     
     public int currency;
 
+    public GameObject winScreen;
+    public GameObject deathScreen;
+
     private float _gameTime;
     private int _health = MaxHealth;
     private int _lastBaseIncome;
@@ -37,7 +40,7 @@ public class GameStateManager : MonoBehaviour
         if (spawners.All(i => i.isDone) && enemies.Any() is false)
         {
             Time.timeScale = 0;
-            Debug.Log("Game won");
+            winScreen.SetActive(true);
             // TODO: Go to next level / victory screen
         }
     }
@@ -82,6 +85,8 @@ public class GameStateManager : MonoBehaviour
             var mainBuilding = GameObject.FindGameObjectWithTag("MainBuilding");
             mainBuilding.GetComponent<DestroyableBuilding>().Destroy();
             Destroy(mainBuilding);
+            
+            deathScreen.SetActive(true);
         }
 
         return _health;
