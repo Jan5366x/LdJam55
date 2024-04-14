@@ -9,6 +9,9 @@ public class WaypointFollower : MonoBehaviour
     public float speed;
 
     private Waypoint _currentWaypoint = null;
+
+    public Vector3 CurrentDirection { get; set; }
+    public float CurrentSpeed { get; set; }
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +34,7 @@ public class WaypointFollower : MonoBehaviour
         Vector3 waypointPos = _currentWaypoint.transform.position;
         Vector3 direction = (waypointPos - currentPos).normalized;
         Vector3 movingToPos = currentPos + direction * (Time.deltaTime * speed);
+        CurrentDirection = direction;
         if (Vector3.Distance(currentPos, movingToPos) <
             Vector3.Distance(currentPos, waypointPos))
         {
@@ -40,6 +44,8 @@ public class WaypointFollower : MonoBehaviour
         {
             transform.position = waypointPos;
         }
+
+        CurrentSpeed = Vector3.Distance(transform.position, currentPos);
 
         if (transform.position == _currentWaypoint.transform.position)
         {
