@@ -340,6 +340,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Tree2
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 798
+        width: 26
+        height: 48
+      alignment: 9
+      pivot: {x: 0.49229667, y: 0.032625835}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0380a062f8472a5a97ed797f0fdb1d4
+      internalID: -1041904237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tree3
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 797
+        width: 23
+        height: 67
+      alignment: 9
+      pivot: {x: 0.40420398, y: 0.042590696}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34d87c9215037c9448b441fde04146c4
+      internalID: -1659778692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -361,6 +403,8 @@ TextureImporter:
       MainBuilding: -517534547
       MainBuildingDead: 608354144
       Tree1: 1040762381
+      Tree2: -1041904237
+      Tree3: -1659778692
       Wine1: 1043170449
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
