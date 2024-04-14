@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WaypointFollower : MonoBehaviour
@@ -12,11 +9,6 @@ public class WaypointFollower : MonoBehaviour
 
     public Vector3 CurrentDirection { get; set; }
     public float CurrentSpeed { get; set; }
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -51,8 +43,7 @@ public class WaypointFollower : MonoBehaviour
         {
             if (waypointManager.IsLastNode(_currentWaypoint))
             {
-                var power = transform.GetComponent<EntityWithAttack>().attackPower;
-                GameObject.Find("GameStateManager").GetComponent<GameStateManager>().AddDamage(power);
+                transform.GetComponent<EntityWithAttack>().AttackCastle();
                 Destroy(gameObject);
             }
             else
