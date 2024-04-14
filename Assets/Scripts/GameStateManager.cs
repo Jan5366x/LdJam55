@@ -1,5 +1,7 @@
 using System;
+using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameStateManager : MonoBehaviour
@@ -10,43 +12,54 @@ public class GameStateManager : MonoBehaviour
     
     public int currency;
 
-    private float gameTime;
-    private int health = MaxHealth;
-    private int lastBaseIncome;
+    private float _gameTime;
+    private int _health = MaxHealth;
+    private int _lastBaseIncome;
 
     private const int MaxHealth = 100;
     private const int BaseIncome = 5;
     private const int BaseIncomeRhythm = 5;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
-        gameTime += Time.deltaTime;
+        _gameTime += Time.deltaTime;
 
-        timeField.SetText($"Time: {TimeSpan.FromSeconds(gameTime):mm\\:ss}");
+        CheckForVictory();
+        UpdateTextfields();
+        AddBaseIncome();
+    }
+
+    private void CheckForVictory()
+    {
+        var spawners = FindObjectsOfType<Spawner>();
+        var enemies = FindObjectsOfType<WaypointFollower>().Where(i => i.IsDestroyed() is false);
+        if (spawners.All(i => i.isDone) && enemies.Any() is false)
+        {
+            Time.timeScale = 0;
+            Debug.Log("Game won");
+            // TODO: Go to next level / victory screen
+        }
+    }
+
+    private void UpdateTextfields()
+    {
+        timeField.SetText($"Time: {TimeSpan.FromSeconds(_gameTime):mm\\:ss}");
         currencyField.SetText($"Souls: {currency}");
-        healthField.SetText($"{health}/{MaxHealth}");
-        if (health <= MaxHealth * 0.2)
+        healthField.SetText($"{_health}/{MaxHealth}");
+        if (_health <= MaxHealth * 0.2)
         {
             healthField.fontStyle = FontStyles.Bold;
             healthField.color = Color.red;
         }
-
-        AddBaseIncome();
     }
 
     private void AddBaseIncome()
     {
-        var time = (int)gameTime;
-        if (time % BaseIncomeRhythm == 0 && time > lastBaseIncome)
+        var time = (int)_gameTime;
+        if (time % BaseIncomeRhythm == 0 && time > _lastBaseIncome)
         {
-            lastBaseIncome = time;
+            _lastBaseIncome = time;
             AddCurrency(BaseIncome);
         }
     }
@@ -62,15 +75,15 @@ public class GameStateManager : MonoBehaviour
 
     public int AddDamage(int damage)
     {
-        health -= damage;
+        _health -= damage;
 
-        if (health <= 0)
+        if (_health <= 0)
         {
             var mainBuilding = GameObject.FindGameObjectWithTag("MainBuilding");
             mainBuilding.GetComponent<DestroyableBuilding>().Destroy();
             Destroy(mainBuilding);
         }
 
-        return health;
+        return _health;
     }
 }

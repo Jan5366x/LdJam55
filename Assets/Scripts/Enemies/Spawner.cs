@@ -26,6 +26,8 @@ public class Spawner : MonoBehaviour
     
     private int _enemiesSpawned;
     private float _accumulatedtimeAll;
+
+    public bool isDone => enemiesToSpawn == _enemiesSpawned;
     
     void Update()
     {
