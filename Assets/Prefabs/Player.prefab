@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e0c3b5d10b0c4498a9d919752050e9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.3
+  speed: 0.1
 --- !u!114 &7795038683977840993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,7 +193,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c5db73a7d032554e807095c916e17bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerTemplate: {fileID: 0}
-  towerContainer: {fileID: 0}
-  player: {fileID: 0}
+  towerTemplate: {fileID: 6920002720939792871, guid: 6152bc8cf3a93d247b26582408257830, type: 3}
+  player: {fileID: 3206160408297284923}
   gameStateManager: {fileID: 0}
