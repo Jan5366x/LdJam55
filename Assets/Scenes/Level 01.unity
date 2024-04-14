@@ -20158,10 +20158,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2907464304659253676, guid: 11f315c3380b74d68a989b243269d71f, type: 3}
-      propertyPath: m_SortingOrder
-      value: 950
-      objectReference: {fileID: 0}
     - target: {fileID: 3206160408297284923, guid: 11f315c3380b74d68a989b243269d71f, type: 3}
       propertyPath: m_Name
       value: Player
@@ -20170,18 +20166,6 @@ PrefabInstance:
       propertyPath: gameStateManager
       value: 
       objectReference: {fileID: 1073198217}
-    - target: {fileID: 6110268586699269409, guid: 11f315c3380b74d68a989b243269d71f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.2170429
-      objectReference: {fileID: 0}
-    - target: {fileID: 6110268586699269409, guid: 11f315c3380b74d68a989b243269d71f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.247469
-      objectReference: {fileID: 0}
-    - target: {fileID: 6110268586699269409, guid: 11f315c3380b74d68a989b243269d71f, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.2170429
-      objectReference: {fileID: 0}
     - target: {fileID: 6110268586699269409, guid: 11f315c3380b74d68a989b243269d71f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -26.14
@@ -20223,8 +20207,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 3669442899198491868, guid: 11f315c3380b74d68a989b243269d71f, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11f315c3380b74d68a989b243269d71f, type: 3}
