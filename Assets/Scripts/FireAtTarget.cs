@@ -49,7 +49,7 @@ public class FireAtTarget : MonoBehaviour
 
         foreach (var enemy in enemies)
         {
-            var dist = Vector3.Distance(transform.position, enemy.transform.position);
+            var dist = Vector3.Distance(weapon.transform.position, enemy.transform.position);
             if (dist < maxRange && dist < nextTagetDistance)
             {
                 nextTarget = enemy;

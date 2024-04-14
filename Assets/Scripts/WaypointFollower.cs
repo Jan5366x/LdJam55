@@ -18,7 +18,7 @@ public class WaypointFollower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_currentWaypoint is null)
+        if (_currentWaypoint == null)
             _currentWaypoint = waypointManager.spawnPoint;
 
     }
