@@ -1,27 +1,33 @@
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class TutorialMessage : MonoBehaviour
 {
     public string message = string.Empty;
+    public float displayTime = 5f;
     public GameObject infoScreen;
     
     private Transform _player;
     private bool _hasFired;
+    private float _timeSinceFired;
     
-    // Start is called before the first frame update
     void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (_hasFired)
         {
+            _timeSinceFired += Time.deltaTime;
+
+            if (_timeSinceFired > displayTime)
+            {
+                infoScreen.SetActive(false);
+                Destroy(gameObject);
+            }
+            
             return;
         }
 
@@ -29,6 +35,8 @@ public class TutorialMessage : MonoBehaviour
         {
             infoScreen.SetActive(true);
             infoScreen.GetComponent<TextMeshProUGUI>().text = message;
+            _hasFired = true;
+            _timeSinceFired = 0;
         }
     }
 }
