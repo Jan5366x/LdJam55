@@ -448,7 +448,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1063406203376671180, guid: c404bf4629ac4c345b30248fa69a98cc, type: 3}
       propertyPath: m_text
-      value: 'Looser!
+      value: 'Your castle has fallen.
 
         Press ESC to enter the menu.'
       objectReference: {fileID: 0}
