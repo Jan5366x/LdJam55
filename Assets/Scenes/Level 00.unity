@@ -2959,6 +2959,7 @@ GameObject:
   - component: {fileID: 1584964974}
   - component: {fileID: 1584964973}
   - component: {fileID: 1584964972}
+  - component: {fileID: 1584964975}
   m_Layer: 5
   m_Name: InfoScreen
   m_TagString: InfoScreen
@@ -3124,6 +3125,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1584964975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584964970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d63595cfe899c1d469f9109998d063d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  previousWriter: {fileID: 0}
 --- !u!1001 &1649723797
 PrefabInstance:
   m_ObjectHideFlags: 0
