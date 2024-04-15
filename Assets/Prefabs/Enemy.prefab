@@ -117,7 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathAnimationTemplate: {fileID: 2185715989828630771, guid: a5ffacee6ae050743898c0fa50f335ec, type: 3}
   health: 25
-  unitValue: 2
+  unitValue: 1
   physicalResistance: 0
   magicalResistance: 0
 --- !u!114 &8663079599838684647

@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  wiggleHorizontalRange: 0.05
+  wiggleHorizontalRange: 0.1
   wiggleHorizontalFrequency: 1
 --- !u!114 &3537321699257547415
 MonoBehaviour:

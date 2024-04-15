@@ -33,7 +33,10 @@ public class TowerInput : MonoBehaviour
         if (newSlot == _nearestBuildingSlot)
         {
             var marker = GameObject.FindGameObjectWithTag("BuildingSlotMarker");
-            SetMarkerColor(marker);
+            if (marker is not null)
+            {
+                SetMarkerColor(marker);
+            }
             return;
         }
 
