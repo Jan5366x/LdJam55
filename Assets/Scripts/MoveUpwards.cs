@@ -1,8 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
+using Random = System.Random;
 
 public class MoveUpwards : MonoBehaviour
 {
@@ -11,29 +9,25 @@ public class MoveUpwards : MonoBehaviour
     public float wiggleHorizontalFrequency = 0.5f;
 
     private float _accumulatedTime;
-    private float originalX;
+    private Vector3 _wiggleDirection;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        originalX = transform.position.x;
+        _wiggleDirection = new Random().Next(0, 10) switch
+        {
+            > 5 => Vector3.right,
+            _ => Vector3.left,
+        };
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    private void FixedUpdate()
+    private void Update()
     {
         _accumulatedTime += Time.deltaTime;
         Vector3 currentPos = transform.position;
 
         float offset = MathF.Sin((MathF.PI * wiggleHorizontalFrequency) * _accumulatedTime) * wiggleHorizontalRange;
         Vector3 upMovement = (Vector3.up * (speed * Time.deltaTime));
-        Vector3 sideMovement = Vector3.right * offset;
+        Vector3 sideMovement = _wiggleDirection * offset;
         transform.position = currentPos + upMovement + sideMovement;
-
     }
 }
