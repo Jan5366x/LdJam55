@@ -1,11 +1,15 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class MovingProjectile : MonoBehaviour
 {
     public Transform target;
     public float moveSpeed;
     public GameObject explosionTemplate;
+    public GameObject explosionSoundTemplate;
+    
+    public Vector3 targetOffset = new (0, 0.2f);
 
     public int damage;
 
@@ -16,13 +20,13 @@ public class MovingProjectile : MonoBehaviour
     {
         if (target.IsDestroyed() is false)
         {
-            _lastTargetPosition = target.position;
+            _lastTargetPosition = target.position + targetOffset;
         }
 
         Rotate();
         MoveRocket();
-
-        if (Vector3.Distance(transform.position, _lastTargetPosition) <= 0.3f)
+        
+        if (transform.position == _lastTargetPosition)
         {
             HitTarget();
         }
@@ -35,6 +39,12 @@ public class MovingProjectile : MonoBehaviour
             target.GetComponent<EntityWithHealth>().ApplyDamage(damage);    
         }
 
+        if (explosionSoundTemplate != null)
+        {
+            var explosion = Instantiate(explosionSoundTemplate);
+            explosion.transform.position = transform.position;
+        }
+        
         if (explosionTemplate != null)
         {
             var explosion = Instantiate(explosionTemplate);
@@ -52,7 +62,7 @@ public class MovingProjectile : MonoBehaviour
 
     private void Rotate()
     {
-        var dir = transform.position - _lastTargetPosition;
+        var dir = transform.position - (_lastTargetPosition);
         var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }

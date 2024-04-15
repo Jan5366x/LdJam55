@@ -11,7 +11,7 @@ public class WaveVertical : MonoBehaviour
     
     void Start()
     {
-        _originalPosition = transform.position;
+        _originalPosition = transform.position + new Vector3(0, 0.3f, 0);
     }
     
     void Update()

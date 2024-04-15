@@ -1,5 +1,3 @@
-    using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FadeAway : MonoBehaviour
@@ -8,19 +6,17 @@ public class FadeAway : MonoBehaviour
 
     private float _accumulatedTime = 0f;
 
-    private SpriteRenderer renderer;
-    // Start is called before the first frame update
+    private SpriteRenderer _renderer;
+
     void Start()
     {
-        renderer = GetComponent<SpriteRenderer>();
+        _renderer = GetComponent<SpriteRenderer>();
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         _accumulatedTime += Time.deltaTime;
-
-        renderer.color = new Color(1, 1, 1, 1 - Clamp(_accumulatedTime / timeUntilGone));
+        _renderer.color = new Color(_renderer.color.r, _renderer.color.g, _renderer.color.b, 1f - Clamp(_accumulatedTime / timeUntilGone));
     }
 
     private float Clamp(float value) =>
