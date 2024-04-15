@@ -14,6 +14,9 @@ public class Movement : MonoBehaviour
 
     private Rigidbody2D _rigidbody2D;
 
+    public float verticalInput { get; set; }
+    public float horizontalInput { get; set; }
+
     private void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
@@ -25,13 +28,11 @@ public class Movement : MonoBehaviour
         animator.SetFloat(Vertical, CurrentDirection.y);
         animator.SetFloat(Speed, CurrentSpeed);
     }
-    
+
     private void FixedUpdate()
     {
-        var vertical = Input.GetAxis("Vertical");
-        var horizontal = Input.GetAxis("Horizontal");
-        
-        _rigidbody2D.AddForce(new Vector3 ( + horizontal * speed * Time.deltaTime, vertical * speed* Time.deltaTime));
+
+        _rigidbody2D.AddForce(new Vector3 ( + horizontalInput * speed * Time.deltaTime, verticalInput * speed* Time.deltaTime));
 
         CurrentSpeed = _rigidbody2D.velocity.magnitude;
         if (CurrentSpeed > 0.00001f)

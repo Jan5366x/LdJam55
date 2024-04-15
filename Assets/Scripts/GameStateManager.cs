@@ -9,15 +9,19 @@ public class GameStateManager : MonoBehaviour
     public TextMeshProUGUI timeField;
     public TextMeshProUGUI currencyField;
     public TextMeshProUGUI healthField;
-    
+
     public int currency;
 
     public GameObject winScreen;
     public GameObject deathScreen;
 
+    private static GameStateManager Instance;
+
     private float _gameTime;
     private int _health = MaxHealth;
     private int _lastBaseIncome;
+
+    public bool IsInMainMenu { get; set; }
 
     private const int MaxHealth = 100;
     private const int BaseIncome = 5;
@@ -28,9 +32,23 @@ public class GameStateManager : MonoBehaviour
     {
         _gameTime += Time.deltaTime;
 
+        if (IsInMainMenu)
+            return;
         CheckForVictory();
         UpdateTextfields();
         AddBaseIncome();
+    }
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     private void CheckForVictory()
@@ -85,7 +103,7 @@ public class GameStateManager : MonoBehaviour
             var mainBuilding = GameObject.FindGameObjectWithTag("MainBuilding");
             mainBuilding.GetComponent<DestroyableBuilding>().Destroy();
             Destroy(mainBuilding);
-            
+
             deathScreen.SetActive(true);
         }
 
