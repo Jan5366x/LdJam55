@@ -10,6 +10,7 @@ public class MoveUpwards : MonoBehaviour
 
     private float _accumulatedTime;
     private Vector3 _wiggleDirection;
+    private float _wiggleTimeOffset;
 
     private void Start()
     {
@@ -18,6 +19,7 @@ public class MoveUpwards : MonoBehaviour
             > 5 => Vector3.right,
             _ => Vector3.left,
         };
+        _wiggleTimeOffset = (float)(new Random().Next(0, 10_000)) / 10_000;
     }
 
     private void Update()
@@ -25,9 +27,10 @@ public class MoveUpwards : MonoBehaviour
         _accumulatedTime += Time.deltaTime;
         Vector3 currentPos = transform.position;
 
-        float offset = MathF.Sin((MathF.PI * wiggleHorizontalFrequency) * _accumulatedTime) * wiggleHorizontalRange;
+        float offset = MathF.Sin((_wiggleTimeOffset + (MathF.PI * wiggleHorizontalFrequency)) * _accumulatedTime) * wiggleHorizontalRange;
         Vector3 upMovement = (Vector3.up * (speed * Time.deltaTime));
-        Vector3 sideMovement = _wiggleDirection * offset;
-        transform.position = currentPos + upMovement + sideMovement;
+        // Vector3 sideMovement = _wiggleDirection * offset;
+        transform.position = currentPos + upMovement;
+        transform.GetChild(0).transform.localPosition = new Vector3(offset, 0, 0);
     }
 }

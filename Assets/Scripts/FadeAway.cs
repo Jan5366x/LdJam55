@@ -10,9 +10,9 @@ public class FadeAway : MonoBehaviour
 
     void Start()
     {
-        _renderer = GetComponent<SpriteRenderer>();
+        _renderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
     }
-    
+
     void Update()
     {
         _accumulatedTime += Time.deltaTime;
