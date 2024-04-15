@@ -24,9 +24,9 @@ public class MenuInteractionListener : MonoBehaviour
         bool onlyMenuIsActive = SceneManager.sceneCount == 1;
         if (escPressed && !onlyMenuIsActive)
         {
-            SceneManager.UnloadSceneAsync("MainMenu");
             Time.timeScale = 1f;
             _gameSettingsManager.IsInMainMenu = false;
+            SceneManager.UnloadSceneAsync("MainMenu");
             return;
         }
     }

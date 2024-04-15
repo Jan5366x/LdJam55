@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
@@ -10,7 +11,19 @@ public class GameSettingsManager : MonoBehaviour
     public int volume;
 
     public static GameSettingsManager Instance;
+
+
+    [field: SerializeField]
     public bool IsInMainMenu { get; set; }
+    // public bool IsInMainMenu
+    // {
+    //     get
+    //     {
+    //         Enumerable.Range(0, SceneManager.sceneCount).Select(x => SceneManager.GetSceneAt(x))
+    //             .Any(x => x.name == "MainMenu");
+    //     }
+    //     set => isInMainMenu = value;
+    // }
 
     public AudioMixer audioMixer;
 
