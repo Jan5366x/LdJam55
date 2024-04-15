@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 81fb8cefb6c4c56d5b0deb291cddd4ad
+guid: 1a38ba2edfe486b01b8d056d7cdeb873
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,106 +110,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ExploA_0
+      name: Selection_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2
+        y: 4
+        width: 28
+        height: 9
+      alignment: 9
+      pivot: {x: 0.5, y: 0.026192877}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9cfc9591edaefb2178fb2dfd662dc83a
-      internalID: -515411666
+      spriteID: 0ad2cfacdc84fa302976efee8c15b518
+      internalID: 264241431
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ExploA_1
+      name: Selection_0
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 5
+        y: 17
+        width: 22
+        height: 12
+      alignment: 9
+      pivot: {x: 0.49181002, y: 0.44643006}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9566c74721b98799db72a13da10c0c61
-      internalID: -1104590076
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ExploA_2
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 53229118f0994ecd1a863ced373a31ec
-      internalID: 1743664424
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ExploA_3
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e0833568a25e78e7bbc04cbbb082f98e
-      internalID: 1808564192
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ExploA_4
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e5ee317f32becf6b39c82cd20d62c0c3
-      internalID: -1896378918
+      spriteID: 4580f53d9693308e880a58bf0e173d82
+      internalID: -360652499
       vertices: []
       indices: 
       edges: []
@@ -225,11 +162,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ExploA_0: -515411666
-      ExploA_1: -1104590076
-      ExploA_2: 1743664424
-      ExploA_3: 1808564192
-      ExploA_4: -1896378918
+      Selection_0: -360652499
+      Selection_1: 1579238360
+      Selection_2: -1044609825
+      Selection_3: 264241431
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
