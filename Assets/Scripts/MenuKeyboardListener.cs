@@ -6,17 +6,22 @@ using UnityEngine.SceneManagement;
 public class MenuInteractionListener : MonoBehaviour
 {
     private GameStateManager _gameStateManager;
+
+    private GameSettingsManager _gameSettingsManager;
+
     // Start is called before the first frame update
     void Start()
     {
         _gameStateManager = GameObject.Find("GameStateManager").GetComponent<GameStateManager>();
+        _gameSettingsManager = GameObject.Find("GameSettingsManager").GetComponent<GameSettingsManager>();
+        
         // TODO Audio listener
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!_gameStateManager.IsInMainMenu)
+        if (!_gameSettingsManager.IsInMainMenu)
             return;
 
         bool escPressed = Input.GetButtonDown("Cancel");
@@ -24,7 +29,7 @@ public class MenuInteractionListener : MonoBehaviour
         {
             SceneManager.UnloadSceneAsync("MainMenu");
             Time.timeScale = 1f;
-            _gameStateManager.IsInMainMenu = false;
+            _gameSettingsManager.IsInMainMenu = false;
             return;
         }
     }

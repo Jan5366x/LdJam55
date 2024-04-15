@@ -39,17 +39,17 @@ public class GameStateManager : MonoBehaviour
         AddBaseIncome();
     }
 
-    private void Awake()
-    {
-        if (Instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
+    // private void Awake()
+    // {
+    //     if (Instance != null)
+    //     {
+    //         Destroy(gameObject);
+    //         return;
+    //     }
+    //
+    //     Instance = this;
+    //     DontDestroyOnLoad(gameObject);
+    // }
 
     private void CheckForVictory()
     {

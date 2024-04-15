@@ -1,5 +1,6 @@
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TowerInput : MonoBehaviour
 {
@@ -16,11 +17,8 @@ public class TowerInput : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void Fired()
     {
-        bool towerPlaceRequested = Input.GetButtonDown("Fire1");
-        if (!towerPlaceRequested)
-            return;
         GameObject[] slots = GameObject.FindGameObjectsWithTag("TowerBuildingSlot");
         GameObject slot = slots
             .Where(x => Vector3.Distance(player.transform.position, x.transform.position) <= buildRadius)
