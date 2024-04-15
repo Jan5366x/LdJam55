@@ -29,7 +29,7 @@ public class IngameKeyboardListener : MonoBehaviour
         if (_gameSettingsManager.IsInMainMenu)
             return;
 
-        if (firePressed)
+        if (firePressed && !_gameStateManager.isGameEnded)
             towerInput.Fired();
         movement.verticalInput = movementVerticalInput;
         movement.horizontalInput = movementHorizontalInput;

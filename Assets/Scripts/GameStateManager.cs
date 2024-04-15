@@ -27,6 +27,8 @@ public class GameStateManager : MonoBehaviour
     private const int BaseIncome = 5;
     private const int BaseIncomeRhythm = 5;
 
+    public bool isGameEnded = false;
+
     // Update is called once per frame
     void Update()
     {
@@ -58,6 +60,7 @@ public class GameStateManager : MonoBehaviour
         if (spawners.All(i => i.isDone) && enemies.Any() is false)
         {
             Time.timeScale = 0;
+            isGameEnded = true;
             winScreen.SetActive(true);
             // TODO: Go to next level / victory screen
         }
@@ -104,6 +107,7 @@ public class GameStateManager : MonoBehaviour
             mainBuilding.GetComponent<DestroyableBuilding>().Destroy();
             Destroy(mainBuilding);
 
+            isGameEnded = true;
             deathScreen.SetActive(true);
         }
 
