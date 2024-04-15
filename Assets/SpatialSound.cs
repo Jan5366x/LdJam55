@@ -4,7 +4,7 @@ public class SpatialSound : MonoBehaviour
 {
     public float minDist = 1;
     public float maxDist = 6;
-    
+
     private Transform _listener;
     private AudioSource _audioSource;
 
@@ -12,6 +12,7 @@ public class SpatialSound : MonoBehaviour
     {
         _audioSource = GetComponent<AudioSource>();
         _listener = GameObject.FindGameObjectWithTag("Player").transform;
+        Update();
     }
 
     private void Update()
