@@ -32,6 +32,8 @@ public class TowerInput : MonoBehaviour
 
         if (newSlot == _nearestBuildingSlot)
         {
+            var marker = GameObject.FindGameObjectWithTag("BuildingSlotMarker");
+            SetMarkerColor(marker);
             return;
         }
 
@@ -46,7 +48,20 @@ public class TowerInput : MonoBehaviour
         {
             var marker = Instantiate(buildingSlotMarker, newSlot.transform);
             marker.transform.position = newSlot.transform.position;
+
+            SetMarkerColor(marker);
         }
+    }
+
+    private void SetMarkerColor(GameObject marker)
+    {
+        if (gameStateManager.GetCurrency() < buildCosts)
+        {
+            marker.GetComponent<SpriteRenderer>().color = new Color(255 / 255.0F, 102 / 255.0F, 0 / 255.0F, 246 / 255.0F);
+            return;
+        }
+        
+        marker.GetComponent<SpriteRenderer>().color = new Color(245 / 255.0F, 241 / 255.0F, 46 / 255.0F, 246 / 255.0F);
     }
     
     public void Fired()
@@ -57,8 +72,14 @@ public class TowerInput : MonoBehaviour
             return;
         }
 
+        if (gameStateManager.GetCurrency() < buildCosts)
+        {
+            GameObject.Find("Info Text").GetComponent<AutoClearTextfield>().SetText("Not enough souls");
+            return;
+        }
+
         var towerSlot = _nearestBuildingSlot.GetComponent<TowerSlot>();
-        if (!towerSlot.isOccupied && gameStateManager.GetCurrency() >= buildCosts)
+        if (!towerSlot.isOccupied)
         {
             gameStateManager.AddCurrency(-buildCosts);
             GameObject tower = Instantiate(towerTemplate, _nearestBuildingSlot.transform);

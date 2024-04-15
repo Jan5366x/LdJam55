@@ -53163,6 +53163,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 9118493179815747241, guid: c404bf4629ac4c345b30248fa69a98cc, type: 3}
+      propertyPath: timeBeforeClear
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
