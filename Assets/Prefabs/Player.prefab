@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 1998892932912626207}
+  towerInput: {fileID: 6086020076305252182}
 --- !u!114 &1998892932912626207
 MonoBehaviour:
   m_ObjectHideFlags: 0
