@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class TutorialMessage : MonoBehaviour
 {
     public string message = string.Empty;
-    public TextMeshProUGUI infoText;
+    public GameObject infoScreen;
     
     private Transform _player;
     private bool _hasFired;
@@ -27,8 +27,8 @@ public class TutorialMessage : MonoBehaviour
 
         if (_player.position.x > transform.position.x)
         {
-            infoText.SetActive(true);
-            infoScreen.GetComponentInChildren<TextMeshPro>().GetComponent<TextMeshProUGUI>().text = message;
+            infoScreen.SetActive(true);
+            infoScreen.GetComponent<TextMeshProUGUI>().text = message;
         }
     }
 }
