@@ -9,6 +9,7 @@ public class TowerInput : MonoBehaviour
     public GameStateManager gameStateManager;
 
     public float buildRadius = 1.5f;
+    public int buildCosts = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -32,11 +33,9 @@ public class TowerInput : MonoBehaviour
         }
 
         var towerSlot = slot.GetComponent<TowerSlot>();
-        // TODO: Add cost field to tower script
-        const int towerCost = 10;
-        if (!towerSlot.isOccupied && gameStateManager.GetCurrency() >= towerCost)
+        if (!towerSlot.isOccupied && gameStateManager.GetCurrency() >= buildCosts)
         {
-            gameStateManager.AddCurrency(-towerCost);
+            gameStateManager.AddCurrency(-buildCosts);
             GameObject tower = Instantiate(towerTemplate, slot.transform);
             tower.transform.position = slot.transform.position;
             towerSlot.isOccupied = true;
