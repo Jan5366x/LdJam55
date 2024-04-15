@@ -8,6 +8,8 @@ public class TowerInput : MonoBehaviour
     public GameObject player;
     public GameStateManager gameStateManager;
 
+    public GameObject buildSoundTemplate;
+
     public float buildRadius = 1.5f;
     public int buildCosts = 10;
 
@@ -40,6 +42,9 @@ public class TowerInput : MonoBehaviour
             tower.transform.position = slot.transform.position;
             towerSlot.isOccupied = true;
             towerSlot.GetComponentInChildren<SpriteRenderer>().enabled = false;
+            
+            var buildSound = Instantiate(buildSoundTemplate);
+            buildSound.transform.position = transform.position;
         }
     }
 }

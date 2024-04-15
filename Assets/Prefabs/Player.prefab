@@ -214,7 +214,9 @@ MonoBehaviour:
   towerTemplate: {fileID: 6920002720939792871, guid: 6152bc8cf3a93d247b26582408257830, type: 3}
   player: {fileID: 3206160408297284923}
   gameStateManager: {fileID: 0}
+  buildSoundTemplate: {fileID: 3096132419968851516, guid: 792bfaebf8f60e74594445c7cd6b8c31, type: 3}
   buildRadius: 1.5
+  buildCosts: 10
 --- !u!114 &2896475493432807812
 MonoBehaviour:
   m_ObjectHideFlags: 0
