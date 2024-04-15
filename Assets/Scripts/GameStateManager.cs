@@ -24,7 +24,7 @@ public class GameStateManager : MonoBehaviour
     public bool IsInMainMenu { get; set; }
 
     private const int MaxHealth = 100;
-    private const int BaseIncome = 5;
+    private const int BaseIncome = 0;
     private const int BaseIncomeRhythm = 5;
 
     public bool isGameEnded = false;
