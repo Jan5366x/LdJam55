@@ -1,6 +1,5 @@
 using System.Linq;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class TowerInput : MonoBehaviour
 {
@@ -9,37 +8,61 @@ public class TowerInput : MonoBehaviour
     public GameStateManager gameStateManager;
 
     public GameObject buildSoundTemplate;
+    public GameObject buildingSlotMarker;
 
     public float buildRadius = 1.5f;
     public int buildCosts = 10;
 
+    private GameObject _nearestBuildingSlot;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         player = player != null ? player : GameObject.FindGameObjectWithTag("Player");
     }
 
-    // Update is called once per frame
-    public void Fired()
+    private void FixedUpdate()
     {
-        GameObject[] slots = GameObject.FindGameObjectsWithTag("TowerBuildingSlot");
-        GameObject slot = slots
-            .Where(x => Vector3.Distance(player.transform.position, x.transform.position) <= buildRadius)
+        var slots = GameObject.FindGameObjectsWithTag("TowerBuildingSlot");
+        var newSlot = slots
+            .Where(x => Vector3.Distance(player.transform.position, x.transform.position) <= buildRadius &&
+                        x.GetComponent<TowerSlot>().isOccupied is false)
             .OrderBy(x => Vector3.Distance(player.transform.position, x.transform.position))
             .FirstOrDefault();
 
-        if (slot is null)
+        if (newSlot == _nearestBuildingSlot)
+        {
+            return;
+        }
+
+        _nearestBuildingSlot = newSlot;
+        var oldMarkers = GameObject.FindGameObjectsWithTag("BuildingSlotMarker");
+        foreach (var marker in oldMarkers)
+        {
+            Destroy(marker);
+        }
+
+        if (newSlot is not null)
+        {
+            var marker = Instantiate(buildingSlotMarker, newSlot.transform);
+            marker.transform.position = newSlot.transform.position;
+        }
+    }
+    
+    public void Fired()
+    {
+        if (_nearestBuildingSlot is null)
         {
             GameObject.Find("Info Text").GetComponent<AutoClearTextfield>().SetText("No Buildslot in range");
             return;
         }
 
-        var towerSlot = slot.GetComponent<TowerSlot>();
+        var towerSlot = _nearestBuildingSlot.GetComponent<TowerSlot>();
         if (!towerSlot.isOccupied && gameStateManager.GetCurrency() >= buildCosts)
         {
             gameStateManager.AddCurrency(-buildCosts);
-            GameObject tower = Instantiate(towerTemplate, slot.transform);
-            tower.transform.position = slot.transform.position;
+            GameObject tower = Instantiate(towerTemplate, _nearestBuildingSlot.transform);
+            tower.transform.position = _nearestBuildingSlot.transform.position;
             towerSlot.isOccupied = true;
             towerSlot.GetComponentInChildren<SpriteRenderer>().enabled = false;
             

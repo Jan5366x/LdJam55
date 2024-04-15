@@ -215,6 +215,7 @@ MonoBehaviour:
   player: {fileID: 3206160408297284923}
   gameStateManager: {fileID: 0}
   buildSoundTemplate: {fileID: 3096132419968851516, guid: 792bfaebf8f60e74594445c7cd6b8c31, type: 3}
+  buildingSlotMarker: {fileID: 1455308527673143858, guid: 1ae0653af56972f4291ff61676165129, type: 3}
   buildRadius: 1.5
   buildCosts: 10
 --- !u!114 &2896475493432807812
