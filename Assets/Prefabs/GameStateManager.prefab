@@ -47,4 +47,7 @@ MonoBehaviour:
   timeField: {fileID: 0}
   currencyField: {fileID: 0}
   healthField: {fileID: 0}
-  currency: 10
+  currency: 30
+  winScreen: {fileID: 0}
+  deathScreen: {fileID: 0}
+  isGameEnded: 0
