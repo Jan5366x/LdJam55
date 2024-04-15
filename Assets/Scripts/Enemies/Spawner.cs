@@ -8,6 +8,8 @@ public class Spawner : MonoBehaviour
     public int enemiesToSpawn;
     public int secondsUntilLastEnemy;
 
+    public float spawnDelay;
+
     public GameObject enemyTemplate;
     public Transform enemyContainer;
 
@@ -23,12 +25,16 @@ public class Spawner : MonoBehaviour
 
     public bool overwriteHealth;
     public int health;
-    
+
     private int _enemiesSpawned;
     private float _accumulatedtimeAll;
 
     public bool isDone => enemiesToSpawn == _enemiesSpawned;
-    
+
+    void Start()
+    {
+        _accumulatedtimeAll -= spawnDelay;
+    }
     void Update()
     {
         _accumulatedtimeAll += Time.deltaTime;
@@ -53,6 +59,8 @@ public class Spawner : MonoBehaviour
 
     private bool ShouldSpawnEnemy()
     {
+        if (_accumulatedtimeAll < 0)
+            return false;
         float fullArea = IntegrateCurve(curve, 0, 1, 100);
         float currentArea = IntegrateCurve(curve, 0, _accumulatedtimeAll / secondsUntilLastEnemy, 100);
         float toSpawn = currentArea / fullArea * enemiesToSpawn;

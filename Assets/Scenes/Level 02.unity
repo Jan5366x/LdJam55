@@ -78133,6 +78133,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3549393549821927945, guid: 17399f63c62467e479a38c9a98d28d54, type: 3}
+      propertyPath: spawnDelay
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3549393549821927945, guid: 17399f63c62467e479a38c9a98d28d54, type: 3}
       propertyPath: enemyTemplate
       value: 
       objectReference: {fileID: 3319725283023332541, guid: 206ce2a6771be7c4a8046cc97ace71db, type: 3}
@@ -78140,6 +78144,10 @@ PrefabInstance:
       propertyPath: waypointManager
       value: 
       objectReference: {fileID: 1045109682}
+    - target: {fileID: 3549393549821927945, guid: 17399f63c62467e479a38c9a98d28d54, type: 3}
+      propertyPath: secondsUntilLastEnemy
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 4647163959603049748, guid: 17399f63c62467e479a38c9a98d28d54, type: 3}
       propertyPath: m_Name
       value: EnemySpawner C
