@@ -32,8 +32,8 @@ public class LevelSelector : MonoBehaviour
     {
         if (SceneManager.sceneCount <= 1)
             return;
-        Time.timeScale = 1f;
         GameObject.Find("GameSettingsManager").GetComponent<GameSettingsManager>().IsInMainMenu = false;
         SceneManager.UnloadSceneAsync("MainMenu");
+        Time.timeScale = GameObject.Find("GameStateManager").GetComponent<GameStateManager>().isGameEnded ? 0 : 1;
     }
 }

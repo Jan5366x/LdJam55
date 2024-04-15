@@ -11,6 +11,7 @@ TagManager:
   - WinScreen
   - DeathScreen
   - BuildingSlotMarker
+  - InfoScreen
   layers:
   - Default
   - TransparentFX
