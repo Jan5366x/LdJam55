@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class GameSettingsManager : MonoBehaviour
 {
@@ -8,6 +11,8 @@ public class GameSettingsManager : MonoBehaviour
 
     public static GameSettingsManager Instance;
     public bool IsInMainMenu { get; set; }
+
+    public AudioMixer audioMixer;
 
     private void Awake()
     {
@@ -19,6 +24,7 @@ public class GameSettingsManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+        IsInMainMenu = SceneManager.GetActiveScene().name == "MainMenu";
     }
 
     // Start is called before the first frame update
@@ -36,5 +42,6 @@ public class GameSettingsManager : MonoBehaviour
     {
         this.volume = (int)volume;
         // Debug.Log($"Settings manager has received volume of {volume}");
+        audioMixer.SetFloat("MasterVolume", MathF.Log10((volume != 0 ? volume : 0.0001f) / 100) * 20);
     }
 }
