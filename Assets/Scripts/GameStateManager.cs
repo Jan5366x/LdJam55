@@ -55,6 +55,8 @@ public class GameStateManager : MonoBehaviour
 
     private void CheckForVictory()
     {
+        if (isGameEnded)
+            return;
         var spawners = FindObjectsOfType<Spawner>();
         var enemies = FindObjectsOfType<WaypointFollower>().Where(i => i.IsDestroyed() is false);
         if (spawners.All(i => i.isDone) && enemies.Any() is false)
