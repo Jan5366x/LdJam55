@@ -2,3 +2,5 @@
 ### LDJam55
 
 https://ldjam.com/events/ludum-dare/55/summoned-towers
+
+![Logo](ExternalAssets/GameJamLogo.png)
